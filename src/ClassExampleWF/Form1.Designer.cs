@@ -36,6 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.resultTbx = new System.Windows.Forms.TextBox();
             this.countCharOccurenciesBtn = new System.Windows.Forms.Button();
+            this.minMaxBtn = new System.Windows.Forms.Button();
+            this.findIndexBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // elementsSumBtn
@@ -93,12 +95,12 @@
             // 
             this.resultTbx.Location = new System.Drawing.Point(172, 196);
             this.resultTbx.Name = "resultTbx";
-            this.resultTbx.Size = new System.Drawing.Size(146, 22);
+            this.resultTbx.Size = new System.Drawing.Size(440, 22);
             this.resultTbx.TabIndex = 6;
             // 
             // countCharOccurenciesBtn
             // 
-            this.countCharOccurenciesBtn.Location = new System.Drawing.Point(265, 315);
+            this.countCharOccurenciesBtn.Location = new System.Drawing.Point(241, 315);
             this.countCharOccurenciesBtn.Name = "countCharOccurenciesBtn";
             this.countCharOccurenciesBtn.Size = new System.Drawing.Size(187, 51);
             this.countCharOccurenciesBtn.TabIndex = 7;
@@ -106,11 +108,33 @@
             this.countCharOccurenciesBtn.UseVisualStyleBackColor = true;
             this.countCharOccurenciesBtn.Click += new System.EventHandler(this.countCharOccurencies_Click);
             // 
+            // minMaxBtn
+            // 
+            this.minMaxBtn.Location = new System.Drawing.Point(434, 315);
+            this.minMaxBtn.Name = "minMaxBtn";
+            this.minMaxBtn.Size = new System.Drawing.Size(149, 51);
+            this.minMaxBtn.TabIndex = 8;
+            this.minMaxBtn.Text = "Min/Max";
+            this.minMaxBtn.UseVisualStyleBackColor = true;
+            this.minMaxBtn.Click += new System.EventHandler(this.minMaxBtnClick);
+            // 
+            // findIndexBtn
+            // 
+            this.findIndexBtn.Location = new System.Drawing.Point(606, 315);
+            this.findIndexBtn.Name = "findIndexBtn";
+            this.findIndexBtn.Size = new System.Drawing.Size(127, 51);
+            this.findIndexBtn.TabIndex = 9;
+            this.findIndexBtn.Text = "Find Index";
+            this.findIndexBtn.UseVisualStyleBackColor = true;
+            this.findIndexBtn.Click += new System.EventHandler(this.findIndexBtnClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.findIndexBtn);
+            this.Controls.Add(this.minMaxBtn);
             this.Controls.Add(this.countCharOccurenciesBtn);
             this.Controls.Add(this.resultTbx);
             this.Controls.Add(this.label3);
@@ -136,6 +160,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox resultTbx;
         private System.Windows.Forms.Button countCharOccurenciesBtn;
+        private System.Windows.Forms.Button minMaxBtn;
+        private System.Windows.Forms.Button findIndexBtn;
     }
 }
 
