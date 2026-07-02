@@ -1,6 +1,6 @@
 ﻿namespace ClassExampleWF
 {
-    partial class Form1
+    partial class ExamplesFrm
     {
         /// <summary>
         /// Required designer variable.
