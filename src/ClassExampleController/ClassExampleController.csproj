@@ -38,4 +38,8 @@
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.10.27.0.140913\analyzers\SonarAnalyzer.CSharp.dll" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassExampleModels\ClassExampleModels.csproj" />
+  </ItemGroup>
 </Project>

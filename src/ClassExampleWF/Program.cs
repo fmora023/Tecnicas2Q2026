@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassExampleController;
+using ClassExampleModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,10 @@ namespace ClassExampleWF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExamplesFrm(new ClassExampleController.ExamplesController(new ClassExampleController.Examples())));
+            var userController = new UserController(new FileHandler<User>());
+            var controller = new LoginController(userController);
+            var loginFrm = new LoginFrm(controller);
+            Application.Run(loginFrm);
         }
     }
 }
