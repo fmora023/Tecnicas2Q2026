@@ -1,4 +1,5 @@
 ﻿using ClassExampleController;
+using ClassExampleWF.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,17 +35,28 @@ namespace ClassExampleWF
             var user = txtUser.Text;
             var password = txtPassword.Text;
 
-            var login = LoginController.Login(user, password);
+            var isGmail = user.IsGmail();
 
-            if (login)
+            var isPasswordValid = InputValidation.ValidatePassword(password);
+
+            if (isPasswordValid)
             {
-                MessageBox.Show("Login success");
-                var examplesFrm = new ExamplesFrm(new ClassExampleController.ExamplesController(new ClassExampleController.Examples()));
-                examplesFrm.Show();
+                var login = LoginController.Login(user, password);
+
+                if (login)
+                {
+                    MessageBox.Show("Login success");
+                    var mainFrm = new MainForm(LoginController.UserController);
+                    mainFrm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Try again jaja");
+                }
             }
             else
             {
-                MessageBox.Show("Try again jaja");
+                MessageBox.Show("Password should have more than 3 chars and at least a number");
             }
         }
     }

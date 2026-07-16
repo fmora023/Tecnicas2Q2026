@@ -7,7 +7,7 @@ namespace ClassExampleController
     /// </summary>
     public class LoginController
     {
-        private UserController UserController { get; set; }
+        public UserController UserController { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginController"/> class.
@@ -48,7 +48,7 @@ namespace ClassExampleController
         /// <returns>True if the user was created, otherwise false.</returns>
         public bool Register(string name, string username, string password, string email)
         {
-            var newUser = new User(name, username, password, email);
+            var newUser = new User(name, username, password, email, "0");
             return this.UserController.SaveUser(newUser);
         }
     }

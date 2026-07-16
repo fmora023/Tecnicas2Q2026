@@ -14,12 +14,14 @@ namespace ClassExampleModels
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <param name="email">The email.</param>
-        public User(string name, string username, string password, string email)
+        /// <param name="score">The score.</param>
+        public User(string name, string username, string password, string email, string score)
         {
             this.Name = name;
             this.Username = username;
             this.Password = password;
             this.Email = email;
+            this.Score = int.Parse(score);
         }
 
         /// <summary>
@@ -32,6 +34,7 @@ namespace ClassExampleModels
             this.Username = props[1];
             this.Password = props[2];
             this.Email = props[3];
+            this.Score = int.Parse(props[4]);
         }
 
         /// <summary>
@@ -66,5 +69,12 @@ namespace ClassExampleModels
         /// </value>
         public string Email { get; set; }
 
+        /// <summary>
+        /// Gets or sets the score.
+        /// </summary>
+        /// <value>
+        /// The score.
+        /// </value>
+        public int Score { get; set; }
     }
 }

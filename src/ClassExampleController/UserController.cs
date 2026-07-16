@@ -47,6 +47,40 @@ namespace ClassExampleController
         }
 
         /// <summary>
+        /// Updates the score.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="score">The score.</param>
+        /// <returns></returns>
+        public bool UpdateScore(string username, int score)
+        {
+            var user = this.FindUser(username);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.Score = score;
+            // Recuerden actualizarlo en el file tambien para la consistencia de datos.
+            return true;
+        }
+
+        /// <summary>
+        /// Finds the user.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        public User FindUser(string username)
+        {
+            if (this.Users != null && this.Users.Count > 0)
+            {
+                return this.Users.Find(u => u.Name == username || u.Username == username);
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Saves the user.
         /// </summary>
         /// <param name="user">The user.</param>
