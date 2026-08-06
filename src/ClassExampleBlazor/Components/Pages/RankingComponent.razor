@@ -1,0 +1,56 @@
+﻿@page "/Ranking"
+@using ClassExampleController
+
+@rendermode InteractiveServer
+@inject RankingController RankingController
+<PageTitle>Ranking</PageTitle>
+
+<h3>TopScorers</h3>
+
+<div class="table-class">
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+
+        @foreach (var item in RankingController.GetRankingByScoreDesc())
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Score</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+<style>
+    .table-class {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+@code {
+
+
+
+}

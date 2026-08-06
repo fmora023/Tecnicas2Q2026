@@ -1,0 +1,15 @@
+﻿@page "/Dashboard"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<h3>Dashboard</h3>
+
+<button @onclick="NavigateToRanking">Go to Ranking</button>
+
+
+@code {
+    private void NavigateToRanking()
+    {
+        NavigationManager.NavigateTo("/Ranking");
+    }
+}

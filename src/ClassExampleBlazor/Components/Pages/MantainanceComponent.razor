@@ -1,0 +1,48 @@
+﻿@page "/ScoreMantainance"
+@using ClassExampleController
+@using ClassExampleModels
+
+@rendermode InteractiveServer
+@inject MantainanceController MantainanceController
+@inject UserController UserController
+
+<PageTitle>Score Maintenance</PageTitle>
+
+<div>
+    <div>
+        <label>Pick the user</label>
+
+        <InputSelect @bind-Value="SelectedIndex" TValue="int">
+            <option value="-1" disabled>-- Select a user --</option>
+            @for (int i = 0; i < UserController.Users.Count; i++)
+            {
+                <option value="@i">@UserController.Users[i].Name</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div>
+        <label>Enter the score: </label>
+        <input @bind-value=@Score type="number" />
+    </div>
+
+    <div>
+        <button @onclick="UpdateScore">Update Score</button>
+    </div>
+</div>
+
+@code {
+    private int SelectedIndex { get; set; } = -1;
+
+    private User? SelectedUser => SelectedIndex >= 0 ? UserController.Users[SelectedIndex] : null;
+
+    private int Score { get; set; } = 0;
+    
+    private void UpdateScore()
+    {
+        if (SelectedUser != null)
+        {
+            this.MantainanceController.UpdateScore(SelectedUser.Username, Score);
+        }
+    }
+}

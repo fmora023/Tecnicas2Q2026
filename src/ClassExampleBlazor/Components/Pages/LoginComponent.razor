@@ -1,0 +1,41 @@
+﻿@using ClassExampleController
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject LoginController LoginController
+
+<div id="LoginComponentComponent">
+    <div>
+        <label>Enter your name:</label>
+        <input @bind-value=@Name type="text" />
+    </div>
+
+    <div>
+        <label>Enter your password:</label>
+        <input @bind-value=@Password type="password" />
+    </div>
+
+    <div>
+        <button @onclick="Login">Login</button>
+    </div>
+</div>
+
+@code
+{
+    private string Name { get; set; } = string.Empty;
+
+    private string Password { get; set; } = string.Empty;
+
+    private void Login()
+    {
+        var result = LoginController.Login(Name, Password);
+        if (result)
+        {
+            NavigationManager.NavigateTo("/Dashboard");
+        }
+        else
+        {
+            this.Name = string.Empty;
+            this.Password = string.Empty;
+        }
+    }
+}
